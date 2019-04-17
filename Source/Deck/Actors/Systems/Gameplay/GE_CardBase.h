@@ -21,6 +21,10 @@ public:
 	//Override for FinishEffect Implementation
 	virtual void FinishEffect_Implementation() override;
 
+	//Check for an Actor at specified tile
+	UFUNCTION(BlueprintCallable)
+	AActor* CheckTile(int Tile);
+
 	//Tiles for the Effect to Check
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Gameplay Effect", meta = (ExposeOnSpawn = true))
 		TArray<int> TilesToCheck;

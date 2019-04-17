@@ -229,7 +229,7 @@ void ADeckPC::StartAction(int ActionIndex)
 		CurrentCardRef = ActionIndex;
 
 		//Highlight Attack Placement
-		GM->GridRef->HighlightAttackPlacement(CurrentCharacter->GetActorLocation(), CurrentCharacter->Hand[CurrentCardRef]->HitPattern, CurrentCharacter->Hand[CurrentCardRef]->HitMin, CurrentCharacter->Hand[CurrentCardRef]->HitMax);
+		GM->GridRef->HighlightAttackPlacement(CurrentCharacter->GetActorLocation(), CurrentCharacter->Hand[CurrentCardRef]->HitPattern, CurrentCharacter->Hand[CurrentCardRef]->PlacementMin, CurrentCharacter->Hand[CurrentCardRef]->PlacementMax);
 	}
 }
 

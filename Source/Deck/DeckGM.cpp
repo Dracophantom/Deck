@@ -25,7 +25,7 @@ void ADeckGM::EndCombat()
 
 void ADeckGM::NextCharacter()
 {
-	ActiveCharacter = (ActiveCharacter + 1 < Characters.Num() ? ActiveCharacter++ : 0);
+	ActiveCharacter = (ActiveCharacter + 1 < Characters.Num() ? ActiveCharacter+1 : 0);
 
 	if (Characters[ActiveCharacter])
 	{

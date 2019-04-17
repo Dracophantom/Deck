@@ -25,3 +25,26 @@ void AGE_CardBase::FinishEffect_Implementation()
 	//Call Parent FinishEffect
 	Super::FinishEffect_Implementation();
 }
+
+//Check for an Actor at specified tile
+AActor* AGE_CardBase::CheckTile(int Tile)
+{
+	//Get a Valid GM to check for a Grid
+	if (ADeckGM* GM = Cast<ADeckGM>(GetWorld()->GetAuthGameMode()))
+	{
+		if (GM->GridRef)
+		{
+			FVector Start = GM->GridRef->GetLocationFromIndex(Tile) + FVector(0.0f, 0.0f, 500.0f);
+			FVector End = Start - FVector(0.0f, 0.0f, 1000.0f);
+
+			FHitResult Hit;
+
+			if (GetWorld()->LineTraceSingleByChannel(Hit, Start, End, ECollisionChannel::ECC_Pawn))
+			{
+				return Hit.GetActor();
+			}
+		}
+	}
+
+	return NULL;
+}
